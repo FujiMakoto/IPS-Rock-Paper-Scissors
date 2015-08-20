@@ -136,7 +136,7 @@ class _play extends \IPS\Dispatcher\Controller
 		if ( \IPS\Request::i()->isAjax() ) {
 			return \IPS\Output::i()->json( 'rps_score_reset' );
 		}
-		return \IPS\Output::i()->redirect( \IPS\Http\Url::internal( static::$baseUrl ), 'rps_score_reset', 302 );
+		return \IPS\Output::i()->redirect( \IPS\Http\Url::internal( static::$baseUrl, null, 'rps_play' ), 'rps_score_reset', 302 );
 	}
 
 	/**
@@ -166,6 +166,6 @@ class _play extends \IPS\Dispatcher\Controller
 		if ( \IPS\Request::i()->isAjax() ) {
 			return \IPS\Output::i()->json( $message );
 		}
-		return \IPS\Output::i()->redirect( \IPS\Http\Url::internal( static::$baseUrl ), $message, 302 );
+		return \IPS\Output::i()->redirect( \IPS\Http\Url::internal( static::$baseUrl, null, 'rps_play' ), $message, 302 );
 	}
 }

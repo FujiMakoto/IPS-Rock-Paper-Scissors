@@ -1,8 +1,8 @@
 {
     "front": {
         "rps": {
-            "default_controller": "",
-            "protected": false
+            "default_controller": "play",
+            "protected": 0
         }
     }
 }
