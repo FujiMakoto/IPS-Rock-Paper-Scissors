@@ -1,0 +1,15 @@
+<ips:template parameters="$score" />
+<div id="ipsLayout_contentWrapper">
+	<div class="ipsStyle_center" id="ipsLayout_mainArea">
+		<h1>Choose Your Move!</h1>
+		<br> <br>
+		<a class="ipsButton ipsButton_primary rpsAction" data-rps-move="rock"><i class="fa fa-hand-rock-o"></i> &nbsp;Rock</a>
+		<a class="ipsButton ipsButton_primary rpsAction" data-rps-move="paper"><i class="fa fa-hand-paper-o"></i> &nbsp;Paper</a>
+		<a class="ipsButton ipsButton_primary rpsAction" data-rps-move="scissors"><i class="fa fa-hand-scissors-o"></i> &nbsp;Scissors</a>
+	</div>
+	<div id="ipsLayout_sidebar" class="ipsLayout_sidebarright">
+		<aside id="elContextualTools" class="ipsClearfix">
+			{template="scoreboard" group="rps" params="$score"}
+		</aside>
+	</div>
+</div>

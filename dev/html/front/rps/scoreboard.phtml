@@ -1,0 +1,28 @@
+<ips:template parameters="$score" />
+<div id="elRpsScoreboard" class="ipsWidget ipsWidget_vertical ipsBox">
+	<h3 class="ipsType_sectionTitle ipsType_reset">{lang="rps_scoreboard"}</h3>
+	<div class="ipsPad_half">
+		<div class="ipsSideMenu">
+			<ul class="ipsSideMenu_list">
+				<li>
+					<span class="ipsBadge ipsBadge_style1 ipsPos_right" id="rpsComputerScore">{$score['losses']}</span>
+					<strong class="ipsType_normal"><i class="fa fa-desktop"></i> &nbsp;{lang="rps_computer"}</strong>
+				</li>
+
+				<li>
+					<span class="ipsBadge ipsBadge_style1 ipsPos_right" id="rpsPlayerScore">{$score['wins']}</span>
+					<strong class="ipsType_normal"><i class="fa fa-user"></i> &nbsp;{member="name"}</strong>
+				</li>
+
+				<li>
+					<span class="ipsBadge ipsBadge_style1 ipsPos_right" id="rpsDraws">{$score['draws']}</span>
+					<strong class="ipsType_normal"><i class="fa fa-exchange"></i> &nbsp;{lang="rps_draws"}</strong>
+				</li>
+			</ul>
+
+			<p class="ipsType_center">
+				<a href="{url='app=rps&module=rps&controller=play&do=resetScore'}" data-confirm><i class="fa fa-refresh"></i> &nbsp;{lang="rps_reset"}</a>
+			</p>
+		</div>
+	</div>
+</div>

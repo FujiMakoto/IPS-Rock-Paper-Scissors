@@ -32,15 +32,15 @@ class _play extends \IPS\Dispatcher\Controller
 	 */
 	protected function _scoreboard()
 	{
-		if ( in_array( 'rps_scoreboard', \IPS\Request::i()->cookie ) )
+		if ( !empty( \IPS\Request::i()->cookie['rps_scoreboard'] ) )
 		{
-			$scoreboard = json_decode( \IPS\Request::i()->cookie['rps_scoreboard'] );
-			if ( isset( $scoreboard['wins'], $scoreboard['loses'], $scoreboard['draws'] ) ) {
+			$scoreboard = json_decode( \IPS\Request::i()->cookie['rps_scoreboard'], true );
+			if ( isset( $scoreboard['wins'], $scoreboard['losses'], $scoreboard['draws'] ) ) {
 				return $scoreboard;
 			}
 		}
 
-		return array( 'wins' => 0, 'loses' => 0, 'draws' => 0 );
+		return array( 'wins' => 0, 'losses' => 0, 'draws' => 0 );
 	}
 
 	/**
@@ -71,7 +71,7 @@ class _play extends \IPS\Dispatcher\Controller
 
 	public function play()
 	{
-		return \IPS\Output::i()->output = \IPS\Theme::i()->getTemplate( 'rps' )->select();
+		return \IPS\Output::i()->output = \IPS\Theme::i()->getTemplate( 'rps' )->select( $this->_scoreboard() );
 	}
 
 	/**
@@ -107,14 +107,14 @@ class _play extends \IPS\Dispatcher\Controller
 		} elseif ( $winner ) {
 			$scoreboard['wins']++;
 		} else {
-			$scoreboard['loses']++;
+			$scoreboard['losses']++;
 		}
 
 		\IPS\Request::i()->setCookie( 'rps_scoreboard', json_encode( $scoreboard ) );
 
 		return \IPS\Output::i()->output = \IPS\Theme::i()->getTemplate( 'rps' )->result( $winner, $draw, array(
 			'player' => $playerMove, 'computer' => $compMove
-		) );
+		), $scoreboard );
 	}
 
 	/**
