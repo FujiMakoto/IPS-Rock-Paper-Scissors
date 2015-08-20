@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<language>
+ <app key="rps" version="10000000">
+  <word key="__app_rps" js="0">Rock Paper Scissors</word>
+  <word key="module__rps_rps" js="0">Rock Paper Scissors</word>
+  <word key="rps_scoreboard" js="0">Scoreboard</word>
+  <word key="rps_computer" js="0">Computer</word>
+  <word key="rps_draws" js="0">Draws</word>
+  <word key="rps_reset" js="0">Reset Score</word>
+  <word key="rps_score_reset" js="0">Scoreboard reset</word>
+  <word key="rps_you_win" js="0">You win!</word>
+  <word key="rps_you_lose" js="0">You lose!</word>
+  <word key="rps_you_draw" js="0">It's a draw!</word>
+  <word key="rps_comp_played" js="0">Computer played</word>
+  <word key="rps_you_played" js="0">You played</word>
+  <word key="rps_play_again" js="0">Play again</word>
+ </app>
+</language>
