@@ -1,0 +1,15 @@
+#elRpsScoreboard li {
+    margin: 5px 0;
+}
+
+.ipsAlert_icon {
+    font-size: 60px !important;
+}
+
+a.rpsAction {
+    margin: 0 5px;
+}
+
+.rpsResults h1 {
+    margin: 0;
+}
