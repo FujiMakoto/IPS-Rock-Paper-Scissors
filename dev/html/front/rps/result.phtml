@@ -1,0 +1,44 @@
+<ips:template parameters="$winner=TRUE" />
+<div id="ipsLayout_contentWrapper">
+	<div class="ipsStyle_center rpsResults" id="ipsLayout_mainArea">
+		<h1>{{if $winner}}{lang="rps_you_win"}{{else}}{lang="rps_you_lose"}{{endif}}</h1>
+		<ul class="ipsList_inline">
+			<li><h3>{lang="rps_comp_played"} &nbsp;<i class="fa fa-hand-paper-o"></i></h3></li>
+			<li><h3>{lang="rps_you_played"} &nbsp;<i class="fa fa-hand-scissors-o"></i></h3></li>
+		</ul>
+		<img class="ipsImage ipsImage_thumbnailed" src="http://pixel.pub/i/8IMrr8C.png">
+		<br> <br>
+		<a class="ipsButton ipsButton_primary">{lang="rps_play_again"}</a>
+	</div>
+	<div id="ipsLayout_sidebar" class="ipsLayout_sidebarright">
+		<aside id="elContextualTools" class="ipsClearfix">
+			<div id="elRpsScoreboard" class="ipsWidget ipsWidget_vertical ipsBox">
+				<h3 class="ipsType_sectionTitle ipsType_reset">Scoreboard</h3>
+				<div class="ipsPad_half">
+					<div class="ipsSideMenu">
+						<ul class="ipsSideMenu_list">
+							<li>
+								<span class="ipsBadge ipsBadge_style1 ipsPos_right" id="rpsComputerScore">1</span>
+								<strong class="ipsType_normal"><i class="fa fa-desktop"></i> &nbsp;Computer</strong>
+							</li>
+
+							<li>
+								<span class="ipsBadge ipsBadge_style1 ipsPos_right" id="rpsPlayerScore">1</span>
+								<strong class="ipsType_normal"><i class="fa fa-user"></i> &nbsp;{member="name"}</strong>
+							</li>
+
+							<li>
+								<span class="ipsBadge ipsBadge_style1 ipsPos_right" id="rpsDraws">1</span>
+								<strong class="ipsType_normal"><i class="fa fa-exchange"></i> &nbsp;Draws</strong>
+							</li>
+						</ul>
+
+						<p class="ipsType_center">
+							<a href="{url='app=rps&module=rps&controller=play&do=resetScore'}" data-confirm><i class="fa fa-refresh"></i> &nbsp;Reset Score</a>
+						</p>
+					</div>
+				</div>
+			</div>
+		</aside>
+	</div>
+</div>
