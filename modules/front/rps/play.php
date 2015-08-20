@@ -22,6 +22,11 @@ class _play extends \IPS\Dispatcher\Controller
 	 */
 	public function execute()
 	{
+		/* We need FontAwesome 4.4+ for the Roshambo icons */
+		\IPS\Output::i()->cssFiles = array_merge( \IPS\Output::i()->cssFiles, array(
+			\IPS\Http\Url::external( 'https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css' )
+		) );
+
 		parent::execute();
 	}
 
