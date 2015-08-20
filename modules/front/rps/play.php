@@ -26,6 +26,24 @@ class _play extends \IPS\Dispatcher\Controller
 	}
 
 	/**
+	 * Get the scoreboard
+	 *
+	 * @return array
+	 */
+	protected function _scoreboard()
+	{
+		if ( in_array( 'rps_scoreboard', \IPS\Request::i()->cookie ) )
+		{
+			$scoreboard = json_decode( \IPS\Request::i()->cookie['rps_scoreboard'] );
+			if ( isset( $scoreboard['wins'], $scoreboard['loses'], $scoreboard['draws'] ) ) {
+				return $scoreboard;
+			}
+		}
+
+		return array( 'wins' => 0, 'loses' => 0, 'draws' => 0 );
+	}
+
+	/**
 	 * Execute
 	 *
 	 * @return	void
@@ -82,9 +100,7 @@ class _play extends \IPS\Dispatcher\Controller
 		$draw = ( $playerMove === $compMove );
 
 		/* Update the scoreboard */
-		$scoreboard = in_array( 'rps_scoreboard', \IPS\Request::i()->cookie )
-			? json_decode( \IPS\Request::i()->cookie['rps_scoreboard'] )
-			: array( 'wins' => 0, 'loses' => 0, 'draws' => 0 );
+		$scoreboard = $this->_scoreboard();
 
 		if ( $draw ) {
 			$scoreboard['draws']++;
